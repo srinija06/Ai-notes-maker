@@ -24,7 +24,7 @@ const Dashboard: React.FC = () => {
   if (loading) return <div className="flex justify-center items-center h-screen">Loading...</div>;
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center pt-12">
+    <div className="min-h-screen flex flex-col items-center pt-12">
       <div className="w-full max-w-5xl">
         {/* Header is handled by Layout/Navbar */}
         {/* Main dashboard content as in your third image */}

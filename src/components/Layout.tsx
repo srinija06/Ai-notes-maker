@@ -26,7 +26,25 @@ const Navbar: React.FC = () => {
         <img src={logo} alt="EduGenie Logo" className="w-8 h-8 mr-2 rounded" />
         <span className="text-xl font-extrabold" style={{ color: '#a259f7' }}>EduGenie</span>
       </div>
-      <div>
+      <div className="flex items-center space-x-4">
+        <button
+          className="px-4 py-2 bg-transparent text-[#a259f7] font-semibold rounded hover:bg-[#f3e6ff] transition"
+          onClick={() => navigate('/')}
+        >
+          Home
+        </button>
+        <button
+          className="px-4 py-2 bg-transparent text-[#a259f7] font-semibold rounded hover:bg-[#f3e6ff] transition"
+          onClick={() => navigate('/upload')}
+        >
+          Upload
+        </button>
+        <button
+          className="px-4 py-2 bg-transparent text-[#a259f7] font-semibold rounded hover:bg-[#f3e6ff] transition"
+          onClick={() => navigate('/explore')}
+        >
+          Explore
+        </button>
         {user ? (
           <button
             className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 ml-2"
@@ -41,7 +59,7 @@ const Navbar: React.FC = () => {
 };
 
 const Layout: React.FC = () => (
-  <div>
+  <div style={{ minHeight: '100vh', background: '#e5d4f7' }}>
     <Navbar />
     <main>
       <Outlet />

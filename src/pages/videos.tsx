@@ -20,7 +20,7 @@ const VideosPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4 py-12">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
       <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl w-full">
         <h1 className="text-3xl font-bold text-pink-600 mb-6 flex items-center">📺 Videos</h1>
         <div className="mb-6 whitespace-pre-line text-left text-lg">

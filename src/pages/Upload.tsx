@@ -11,7 +11,7 @@ const Upload: React.FC = () => {
     navigate('/context');
   };
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+    <div className="min-h-screen flex flex-col items-center justify-center">
       <div className="w-full max-w-3xl px-4">
         <FileUpload onFileSelect={handleFileSelect} />
       </div>

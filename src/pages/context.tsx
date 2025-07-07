@@ -25,7 +25,7 @@ const ContextPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4 py-12">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
       <div className="bg-white/90 border-2 border-purple-200 rounded-3xl shadow-2xl w-[90vw] max-w-7xl min-h-[80vh] flex flex-col justify-center p-16" style={{ margin: '2rem 0' }}>
         <h1 className="text-4xl font-extrabold mb-8 flex items-center gap-2" style={{ color: '#a259f7' }}>
           <FileText className="w-10 h-10 text-purple-500" />
