@@ -1,73 +1,91 @@
-# Welcome to your Lovable project
+# 🧠 edugenie
 
-## Project info
+An intelligent and interactive web app that helps students learn better by uploading study materials (PDF, Image, or Text). The platform generates short notes, mind maps, MCQ quizzes, video recommendations, and an AI chatbot to clear doubts — all powered by **Gemini AI**.
 
-**URL**: https://lovable.dev/projects/5e759bbe-1129-4231-bdaf-2fe9edfc44af
+---
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+### 🔐 Authentication
+- Supabase authentication with Email & Google login
+- User onboarding with name, email, and secure login
 
-**Use Lovable**
+### 📂 Upload & Analyze
+- Upload **PDF, image, or plain text**
+- Automatically extract content and display topic headings/subtopics
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5e759bbe-1129-4231-bdaf-2fe9edfc44af) and start prompting.
+### 📘 Notes Section
+- Gemini AI generates:
+  - Short notes
+  - Mind maps
+  - Flowcharts
+  - Easy memory tricks
 
-Changes made via Lovable will be committed automatically to this repo.
+### 📝 Quiz Section
+- AI-generated MCQs based on uploaded topic
+- Quiz with:
+  - Timer
+  - Score system
+  - Detailed explanations
+  - Tricks to remember correct answers
 
-**Use your preferred IDE**
+### 📺 Video Recommendations
+- Smart YouTube video suggestions relevant to the topic
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 🤖 Doubts Chat
+- Gemini AI-powered chatbot to clarify any topic-based questions in real time
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 📊 Performance Dashboard
+- Shows:
+  - Quiz history
+  - Accuracy trends
+  - Bookmarked notes
+  - Flashcards with spaced repetition
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🧪 Tech Stack
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+| Tech         | Description                              |
+|--------------|------------------------------------------|
+| **Next.js**  | React framework for frontend              |
+| **Tailwind CSS** | Utility-first CSS for clean styling    |
+| **Supabase** | Backend-as-a-service for Auth & DB       |
+| **Gemini AI**| Content generation (notes, quiz, etc.)   |
+| **OCR & PDF Parsing** | For extracting data from uploads |
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 🧭 Application Flow
 
-**Edit a file directly in GitHub**
+1. **Homepage**  
+   - Login button
+   - Overview of the platform
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+2. **Login Page**  
+   - Email & Google login via Supabase
 
-**Use GitHub Codespaces**
+3. **Dashboard**  
+   - Welcome user
+   - Button to upload document
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+4. **Upload Page**  
+   - Accepts PDF, image, or text file
+   - On upload → Redirects to Context Page
 
-## What technologies are used for this project?
+5. **Context Page**  
+   - Displays topic headings from uploaded file
+   - Navigation options:
+     - 📘 Notes → Detailed notes, mind map, tricks
+     - 📝 Take Test → Quiz UI with timer
+     - 📺 Videos → YouTube suggestions
+     - 🤖 Doubts → AI Chatbot
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🔧 Setup Instructions
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/5e759bbe-1129-4231-bdaf-2fe9edfc44af) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### 1. Clone the repo
+```bash
+git clone https://github.com/yourusername/ai-learning-platform.git
+cd ai-learning-platform
