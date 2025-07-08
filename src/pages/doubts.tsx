@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { geminiGenerateContent } from '../lib/gemini';
+import StudyNav from '../components/StudyNav';
 
 const DoubtsPage: React.FC = () => {
   const [messages, setMessages] = useState<{ role: 'user' | 'ai', text: string }[]>([]);
@@ -19,8 +20,8 @@ const DoubtsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
-      <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl w-full">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 overflow-hidden" style={{height:'100vh'}}>
+      <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl w-full" style={{ maxHeight: 'calc(100vh - 180px)', overflowY: 'auto' }}>
         <h1 className="text-3xl font-bold text-green-600 mb-6 flex items-center">🤖 Doubts</h1>
         <div className="mb-6 h-64 overflow-y-auto bg-gray-100 rounded p-4">
           {messages.length === 0 && <div className="text-gray-400">Ask your doubt about the topic...</div>}
@@ -52,6 +53,7 @@ const DoubtsPage: React.FC = () => {
           </button>
         </div>
       </div>
+      <StudyNav />
     </div>
   );
 };

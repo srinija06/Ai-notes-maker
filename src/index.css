@@ -123,5 +123,6 @@
 
   body {
     @apply bg-background text-foreground;
+    background: #f3e6ff !important;
   }
 }

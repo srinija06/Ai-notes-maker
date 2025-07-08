@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
         </button>
         <button
           className="px-4 py-2 bg-transparent text-[#a259f7] font-semibold rounded hover:bg-[#f3e6ff] transition"
-          onClick={() => navigate('/explore')}
+          onClick={() => navigate('/dashboard')}
         >
           Explore
         </button>
@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
 };
 
 const Layout: React.FC = () => (
-  <div style={{ minHeight: '100vh', background: '#e5d4f7' }}>
+  <div style={{ minHeight: '100vh' }}>
     <Navbar />
     <main>
       <Outlet />
