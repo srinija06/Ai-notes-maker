@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { geminiGenerateContent } from '../lib/gemini';
+import { kiloGenerateContent } from '../lib/kilo';
 import StudyNav from '../components/StudyNav';
 
 const NotesPage: React.FC = () => {
@@ -17,7 +17,7 @@ const NotesPage: React.FC = () => {
       return;
     }
     const prompt = `You are an expert study assistant. For the following text, generate concise study notes, a mind map (as a text outline), and 3 memory tricks. Format with clear headings.\n\n${fileText}`;
-    geminiGenerateContent(prompt)
+    kiloGenerateContent(prompt)
       .then((result) => {
         setNotes(result);
         setLoading(false);

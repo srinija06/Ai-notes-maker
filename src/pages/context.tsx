@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BookOpen, FileText, Youtube, Bot } from 'lucide-react';
-import { geminiGenerateContent } from '../lib/gemini';
+import { kiloGenerateContent } from '../lib/kilo';
 import StudyNav from '../components/StudyNav';
 
 const ContextPage: React.FC = () => {
@@ -13,7 +13,7 @@ const ContextPage: React.FC = () => {
     // Get uploaded file text from sessionStorage
     const fileText = sessionStorage.getItem('uploadedFileText') || '';
     const prompt = `You are an expert study assistant. Given the following text, extract the main title and a bullet list of all major sections and subtopics (as a table of contents). Only return the list, no extra explanation.\n\n${fileText}`;
-    geminiGenerateContent(prompt)
+    kiloGenerateContent(prompt)
       .then((result) => {
         setHeadings(result.split(/\n|\r/).filter(Boolean));
         setLoading(false);

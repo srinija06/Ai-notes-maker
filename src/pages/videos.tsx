@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { geminiGenerateContent } from '../lib/gemini';
+import { kiloGenerateContent } from '../lib/kilo';
+import { searchYouTubeVideos } from '../lib/youtube';
 import StudyNav from '../components/StudyNav';
 
 const VideosPage: React.FC = () => {
@@ -9,41 +10,23 @@ const VideosPage: React.FC = () => {
 
   useEffect(() => {
     const fileText = sessionStorage.getItem('uploadedFileText') || '';
-    const prompt = `You are an expert study assistant. For the following text, suggest 3-5 relevant YouTube video links with their titles. Format as a JSON array of objects with 'title' and 'url' fields.\n\n${fileText}`;
-    geminiGenerateContent(prompt)
-      .then((result) => {
-        try {
-          // Try to parse as JSON array
-          const arr = JSON.parse(result);
-          if (Array.isArray(arr) && arr.every(v => v.title && v.url)) {
-            setVideos(arr);
-          } else {
-            throw new Error('Invalid format');
-          }
-        } catch {
-          // Fallback: try to extract links from text
-          const lines = result.split('\n').filter(Boolean);
-          const parsed = lines.map(line => {
-            const match = line.match(/\[(.*?)\]\((https:\/\/www\.youtube\.com\/watch\?v=[^\)]+)\)/i);
-            if (match) {
-              return { title: match[1], url: match[2] };
-            }
-            const urlMatch = line.match(/https:\/\/www\.youtube\.com\/watch\?v=[^\s]+/i);
-            if (urlMatch) {
-              return { title: line.replace(urlMatch[0], '').replace(/[-:•]/g, '').trim(), url: urlMatch[0] };
-            }
-            return null;
-          }).filter(Boolean) as { title: string; url: string }[];
-          if (parsed.length > 0) {
-            setVideos(parsed);
-          } else {
-            setError('Could not parse video links.');
-          }
+    const prompt = `You are an expert study assistant. For the following text, suggest a search query for relevant YouTube videos.\n\n${fileText}`;
+    kiloGenerateContent(prompt)
+      .then((query) => {
+        // Use the generated query to search YouTube
+        return searchYouTubeVideos(query.trim());
+      })
+      .then((videos) => {
+        if (videos.length === 0) {
+          setError('No videos found for this topic. Try uploading different content.');
+        } else {
+          setVideos(videos);
         }
         setLoading(false);
       })
-      .catch(() => {
-        setError('Could not fetch videos.');
+      .catch((err) => {
+        console.error('Video fetch error:', err);
+        setError('Could not fetch videos. Please check your internet connection.');
         setLoading(false);
       });
   }, []);

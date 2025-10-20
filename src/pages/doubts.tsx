@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { geminiGenerateContent } from '../lib/gemini';
+import { kiloGenerateContent } from '../lib/kilo';
 import StudyNav from '../components/StudyNav';
 
 const DoubtsPage: React.FC = () => {
@@ -13,7 +13,7 @@ const DoubtsPage: React.FC = () => {
     setLoading(true);
     const fileText = sessionStorage.getItem('uploadedFileText') || '';
     const prompt = `You are an AI tutor. The following is the study material context: \n${fileText}\n\nAnswer the following question in simple, clear language for a student.\nQuestion: ${input}`;
-    const aiReply = await geminiGenerateContent(prompt);
+    const aiReply = await kiloGenerateContent(prompt);
     setMessages((msgs) => [...msgs, { role: 'ai', text: aiReply }]);
     setInput('');
     setLoading(false);

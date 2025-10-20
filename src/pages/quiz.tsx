@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { geminiGenerateContent } from '../lib/gemini';
+import { kiloGenerateContent } from '../lib/kilo';
 import StudyNav from '../components/StudyNav';
 
 const QuizPage: React.FC = () => {
@@ -9,7 +9,7 @@ const QuizPage: React.FC = () => {
   useEffect(() => {
     const fileText = sessionStorage.getItem('uploadedFileText') || '';
     const prompt = `You are an expert quiz generator. For the following text, create 5 multiple-choice questions with 4 options each, mark the correct answer, and provide a brief explanation for each. Format clearly.\n\n${fileText}`;
-    geminiGenerateContent(prompt)
+    kiloGenerateContent(prompt)
       .then((result) => {
         setQuiz(result);
         setLoading(false);
